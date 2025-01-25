@@ -79,7 +79,7 @@ const Map: React.FC = () => {
       <MarkerClusterGroup>
         {filteredLocations.map((location) => (
           <Marker
-            key={location.description}
+            key={location.locationName}
             position={[location.latitude, location.longitude]}
             icon={markerIcon}
             eventHandlers={{
@@ -87,7 +87,7 @@ const Map: React.FC = () => {
                 handleMarkerClick(location.latitude, location.longitude),
             }}
           >
-            <Tooltip permanent>{location.description}</Tooltip>
+            <Tooltip permanent>{location.locationName}</Tooltip>
           </Marker>
         ))}
       </MarkerClusterGroup>

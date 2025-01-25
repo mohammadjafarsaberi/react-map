@@ -55,8 +55,7 @@ export const SearchProvider: React.FC<{ children: React.ReactNode }> = ({
         (!criteria.locationName ||
           location.locationName.includes(criteria.locationName)) &&
         (!criteria.latitude || location.latitude === criteria.latitude) &&
-        (!criteria.longitude || location.longitude === criteria.longitude) &&
-        (!criteria.altitude || location.altitude === criteria.altitude)
+        (!criteria.longitude || location.longitude === criteria.longitude)
       );
     });
 

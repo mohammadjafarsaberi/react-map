@@ -7,7 +7,6 @@ interface FormData {
   locationName: string;
   latitude: number;
   longitude: number;
-  altitude: number | null;
 }
 
 export default function Form() {
@@ -37,12 +36,10 @@ export default function Form() {
       setValue("locationName", selectedLocation.locationName);
       setValue("latitude", selectedLocation.latitude);
       setValue("longitude", selectedLocation.longitude);
-      setValue("altitude", selectedLocation.altitude);
     } else if (latitude !== null && longitude !== null) {
       // Clear specific fields except latitude and longitude
 
-      setValue("locationName", ""); // Clear featureDescription
-      setValue("altitude", null); // Clear altitude
+      setValue("locationName", ""); // Clear localName
       setValue("latitude", latitude); // Retain latitude
       setValue("longitude", longitude); // Retain longitude
     } else {
@@ -68,7 +65,6 @@ export default function Form() {
       ...data,
       latitude: Number(data.latitude),
       longitude: Number(data.longitude),
-      altitude: Number(data.altitude),
     };
 
     if (selectedLocation) {
@@ -162,16 +158,6 @@ export default function Form() {
                 {...register("longitude", {
                   required: "Longitude is required",
                 })}
-                className="w-full p-2 border border-gray-300 rounded-md"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block mb-1 text-sm font-semibold">
-                Altitude
-              </label>
-              <input
-                type="text"
-                {...register("altitude", { required: "Altitude is required" })}
                 className="w-full p-2 border border-gray-300 rounded-md"
               />
             </div>

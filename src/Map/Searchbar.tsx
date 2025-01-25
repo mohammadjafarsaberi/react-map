@@ -32,7 +32,7 @@ export default function SearchBar() {
   // Memoized category options
   const categoryOptions = useMemo(() => {
     return {
-      LocationName: Array.from(
+      locationName: Array.from(
         new Set(locations.map((loc) => loc.locationName))
       ),
       LatAndLong: Array.from(
@@ -43,9 +43,6 @@ export default function SearchBar() {
       ),
       longitude: Array.from(
         new Set(locations.map((loc) => String(loc.longitude)))
-      ),
-      altitude: Array.from(
-        new Set(locations.map((loc) => String(loc.altitude)))
       ),
     };
   }, [locations]);
@@ -80,6 +77,7 @@ export default function SearchBar() {
 
       // Fly to the first matched location on the map while searching by latitude and longitude
       const { latitude: lat, longitude: lng } = filteredLocations[0];
+      console.log(lat, lng);
       if (mapRef?.current) {
         mapRef.current.flyTo([lat, lng], 14);
       }
@@ -219,27 +217,24 @@ export default function SearchBar() {
               type="text"
               value={latitudeInput}
               onChange={(e) => setLatitudeInput(e.target.value)}
-              className="block p-2 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-sm border border-gray-300"
+              className="block p-2 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-sm border outline-none  border-gray-300"
               placeholder="Latitude"
             />
             <input
               type="text"
               value={longitudeInput}
               onChange={(e) => setLongitudeInput(e.target.value)}
-              className="block p-2 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-sm border border-gray-300"
+              className="block p-2 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-sm border outline-none  border-gray-300"
               placeholder="Longitude"
             />
           </div>
         ) : (
           <input
             type="search"
-            // {...register(selectedCategory as keyof FormData, {
-            //   required: selectedCategory !== "All Categories",
-            // })}
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
-            className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border border-gray-300"
-            placeholder={`Search by ${selectedCategory.toLowerCase()}`}
+            className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border outline-none  border-gray-300"
+            placeholder={`Search by ${capitalizeFirstLetter(selectedCategory)}`}
           />
         )}
 
