@@ -164,7 +164,7 @@ export default function SearchBar() {
     <div
       id="searchbar"
       className="flex relative mt-3 ml-14 w-96 rtl:mr-3  "
-      style={{ zIndex: 999 }}
+      style={{ zIndex: 1000 }}
     >
       <button
         id="dropdown-button"
@@ -195,13 +195,13 @@ export default function SearchBar() {
           ref={dropdownRef}
           className="absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 mt-1"
         >
-          <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+          <ul className="py-2 text-sm text-gray-700 bg-gray-100">
             {Object.keys(categoryOptions).map((category) => (
               <li key={category}>
                 <button
                   type="button"
                   onClick={() => handleCategorySelect(category)}
-                  className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  className="inline-flex w-full px-4 py-2  hover:bg-gray-200"
                 >
                   {capitalizeFirstLetter(category)}
                 </button>

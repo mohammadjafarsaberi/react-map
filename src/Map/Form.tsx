@@ -105,7 +105,7 @@ export default function Form() {
           id="searchForm"
           style={{ zIndex: 999 }}
           onSubmit={handleSubmit(onSubmit)}
-          className="relative max-w-md ml-14 mt-3 p-4 bg-[#d4d4d8] shadow-md  col-span-3 rounded-md w-full "
+          className="relative max-w-md ml-14 mt-3 p-4 bg-gray-200 shadow-md  col-span-3 rounded-md w-96 "
         >
           <button
             className="absolute top-0 rtl:left-0 ltr:right-0 p-1 rounded-3xl bg-lightModeElement dark:bg-darkModeElement text-lightModeColor dark:text-darkModeColor hover:bg-opacity-90 transition"

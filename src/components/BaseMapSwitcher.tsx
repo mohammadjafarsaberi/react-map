@@ -7,7 +7,7 @@ const baseMaps = [
     layerUrl: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    icon: "../../public/Capture1.png",
+    icon: "images/Capture1.png",
     name: "Light Map",
     caption: "Map 1",
   },
@@ -16,7 +16,7 @@ const baseMaps = [
       "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
     attribution:
       '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-    icon: "../../public/Capture2.png",
+    icon: "images/Capture2.png",
     name: "Dark Map",
     caption: "Map 2",
   },
@@ -25,7 +25,7 @@ const baseMaps = [
       " https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.png",
     attribution:
       'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
-    icon: "../../public/Capture3.png",
+    icon: "images/Capture3.png",
     name: "Satellite Map",
     caption: "Map 3",
   },
