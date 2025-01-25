@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Pulsing dot with radiating circle */
+
+.pulsing-dot {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 123, 255, 0.8); /* Blue center dot */
+  border: 2px solid white;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.5); /* Light shadow around the center dot */
+}
+
+.pulsing-dot::after {
+  content: "";
+  width: 100px; /* Radiating circle width */
+  height: 100px; /* Radiating circle height */
+  border-radius: 50%;
+  background-color: rgba(
+    0,
+    123,
+    255,
+    0.2
+  ); /* Light blue for the radiating circle */
+  position: absolute;
+  top: -40px; /* Position the circle to align with the center */
+  left: -40px; /* Position the circle to align with the center */
+  animation: pulse 1.5s infinite ease-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.5); /* Scale up the circle */
+    opacity: 0; /* Fade out */
+  }
+}
