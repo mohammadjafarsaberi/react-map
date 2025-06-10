@@ -55,7 +55,7 @@ const BaseMapSwitcher: React.FC = () => {
     <div
       id="baseMapSwitcher"
       style={{ zIndex: 999 }}
-      className="absolute top-4 right-4 shadow-md rounded"
+      className="absolute top-16 sm:top-4 right-4 shadow-md rounded "
     >
       <div
         className="relative flex items-center"

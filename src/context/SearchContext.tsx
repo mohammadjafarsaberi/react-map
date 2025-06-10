@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useRef, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useRef,
+  useState,
+  useEffect,
+} from "react";
 import toast from "react-hot-toast";
 import { CustomLocation, initialLocations } from "../Map/Location";
 import { LatLng } from "leaflet";
@@ -31,10 +37,19 @@ const SearchContext = createContext<SearchContextProps | undefined>(undefined);
 export const SearchProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [locations, setLocations] =
-    useState<CustomLocation[]>(initialLocations); // initial data
+  // Load locations from localStorage on initialization
+  const [locations, setLocations] = useState<CustomLocation[]>(() => {
+    const savedLocations = localStorage.getItem("locations");
+    return savedLocations ? JSON.parse(savedLocations) : initialLocations;
+  });
+
+  // Sync locations to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("locations", JSON.stringify(locations));
+  }, [locations]);
+
   const [filteredLocations, setFilteredLocations] =
-    useState<CustomLocation[]>(initialLocations);
+    useState<CustomLocation[]>(locations);
   const mapRef = useRef<L.Map | null>(null);
   const [selectedLocation, setSelectedLocation] =
     useState<CustomLocation | null>(null);
