@@ -55,9 +55,10 @@ export default function Form() {
       setLocations(updatedLocations);
       setFilteredLocations(updatedLocations);
       setSelectedLocation(null);
+      setLatitude(null);
+      setLongitude(null);
       reset();
       toast.success(`${selectedLocation.locationName} has been deleted`);
-      console.log("Location deleted:", selectedLocation);
     }
   };
   const onSubmit = (data: FormData) => {
@@ -75,24 +76,24 @@ export default function Form() {
       );
       setLocations(updatedLocations);
       setFilteredLocations(updatedLocations);
-      // these 2 state belongs to detectClick
       setLatitude(null);
       setLongitude(null);
-      console.log("Location updated:", processedData);
+      setSelectedLocation(null);
+      toast.success(`Location updated: ${processedData.locationName}`);
     } else {
       const newLocation = { ...processedData };
       const updatedLocations = [...locations, newLocation];
       setLocations(updatedLocations);
       setFilteredLocations(updatedLocations);
       toast.success(`Location add: ${newLocation.locationName}`);
-      console.log("Location added:", newLocation);
+      setLatitude(null);
+      setLongitude(null);
+      setSelectedLocation(null);
     }
     reset();
-    setSelectedLocation(null);
   };
   function handleCancel() {
     setSelectedLocation(null);
-    // these 2 state belongs to detectClick
     setLatitude(null);
     setLongitude(null);
     reset();
@@ -105,7 +106,7 @@ export default function Form() {
           id="searchForm"
           style={{ zIndex: 999 }}
           onSubmit={handleSubmit(onSubmit)}
-          className="relative max-w-md ml-14 mt-3 p-4 bg-gray-200 shadow-md  col-span-3 rounded-md w-96 "
+          className="relative max-w-xs mx-auto mt-3 ml-auto p-4 bg-gray-200 shadow-md col-span-3 rounded-md"
         >
           <button
             className="absolute top-0 rtl:left-0 ltr:right-0 p-1 rounded-3xl bg-lightModeElement dark:bg-darkModeElement text-lightModeColor dark:text-darkModeColor hover:bg-opacity-90 transition"
@@ -162,7 +163,7 @@ export default function Form() {
               />
             </div>
           </div>
-          <div className="flex justify-between items-center mt-4">
+          <div className="flex justify-between items-center mt-4 flex-col gap-2 sm:flex-row sm:gap-2 sm:items-stretch">
             <button
               type="button"
               onClick={() => reset()}

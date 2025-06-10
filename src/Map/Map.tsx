@@ -8,7 +8,6 @@ import ArrowKeyNavigator from "../components/ArrowNavigator";
 import FindYourLocation from "../components/FindYourLocation";
 import DetectClick from "../components/DetectClick";
 import SearchBar from "./Searchbar";
-import BaseMapSwitcher from "../components/BaseMapSwitcher";
 import Form from "./Form";
 import ResetButton from "../components/ResetButton";
 
@@ -69,7 +68,6 @@ const Map: React.FC = () => {
       <ArrowKeyNavigator filteredLocations={filteredLocations} />
       <FindYourLocation />
       <ResetButton />
-      <BaseMapSwitcher />
       <DetectClick />
 
       <TileLayer
